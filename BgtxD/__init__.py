@@ -1,10 +1,10 @@
 # BGT-MUSIC
 
-from BgtxD.core.bot import BGT
-from BgtxD.core.git import git
-from BgtxD.core.dir import dirr
+from BgtxD.centre.bot import BGT
+from BgtxD.centre.git import git
+from BgtxD.centre.dir import dirr
 from BgtxD.logging import LOGGER
-from BgtxD.core.userbot import Userbot
+from BgtxD.centre.userbot import Userbot
 from BgtxD.misc import dbb, heroku, sudo
 
 # Directories
@@ -28,7 +28,7 @@ app = BGT()
 # Assistant Client
 userbot = Userbot()
 
-from .platforms import *
+from .player import *
 
 YouTube = YouTubeAPI()
 Carbon = CarbonAPI()
