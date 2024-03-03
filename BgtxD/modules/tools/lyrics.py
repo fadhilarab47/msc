@@ -1,6 +1,6 @@
 import random
 import re
-from BgtxD import power 
+import string
 import lyricsgenius as lg
 from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton,
