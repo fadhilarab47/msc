@@ -1,12 +1,11 @@
 # BGT-MUSIC
 
 from BgtxD.core.bot import BGT
-from BgtxD.core.dir import dirr
 from BgtxD.core.git import git
+from BgtxD.core.dir import dirr
+from BgtxD.logging import LOGGER
 from BgtxD.core.userbot import Userbot
 from BgtxD.misc import dbb, heroku, sudo
-
-from .logging import LOGGER
 
 # Directories
 dirr()
