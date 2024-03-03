@@ -8,7 +8,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 from BgtxD import config 
 from BgtxD.config import BANNED_USERS
 from BgtxD import LOGGER, app, userbot
-from BgtxD.core.call import BIKASH
+from BgtxD.centre.call import BIKASH
 from BgtxD.modules import ALL_MODULES
 from BgtxD.utility.database import get_banned_users, get_gbanned
 
