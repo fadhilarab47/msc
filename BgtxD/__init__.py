@@ -1,4 +1,4 @@
-from BgtxD.centre.bot import BIKASH
+from BgtxD.centre.bot import BGT
 from BgtxD.centre.dir import dirr
 from BgtxD.centre.git import git
 from BgtxD.centre.userbot import Userbot
@@ -11,7 +11,7 @@ git()
 dbb()
 heroku()
 
-app = BIKASH()
+app = BGT()
 userbot = Userbot()
 
 
