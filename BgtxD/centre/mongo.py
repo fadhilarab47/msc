@@ -2,7 +2,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 from BgtxD.config import MONGO_DB_URI
 
-from BgtxD.logging import LOGGER
+from ..logging import LOGGER
 
 LOGGER(__name__).info("Connecting to your Mongo Database...")
 try:
