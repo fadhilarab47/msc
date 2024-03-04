@@ -1,39 +1,26 @@
-# BGT-MUSIC
-
-from BgtxD.centre.bot import BGT
-from BgtxD.centre.git import git
+from BgtxD.centre.bot import BIKASH
 from BgtxD.centre.dir import dirr
-from BgtxD.logging import LOGGER
+from BgtxD.centre.git import git
 from BgtxD.centre.userbot import Userbot
-from BgtxD.misc import dbb, heroku, sudo
+from BgtxD.misc import dbb, heroku
 
-# Directories
+from .logging import LOGGER
+
 dirr()
-
-# Check Git Updates
 git()
-
-# Initialize Memory DB
 dbb()
-
-# Heroku APP
 heroku()
 
-# Load Sudo Users from DB
-sudo()
-
-# Bot Client
-app = BGT()
-
-# Assistant Client
+app = BIKASH()
 userbot = Userbot()
+
 
 from .player import *
 
-YouTube = YouTubeAPI()
-Carbon = CarbonAPI()
-Spotify = SpotifyAPI()
 Apple = AppleAPI()
-Resso = RessoAPI()
+Carbon = CarbonAPI()
 SoundCloud = SoundAPI()
+Spotify = SpotifyAPI()
+Resso = RessoAPI()
 Telegram = TeleAPI()
+YouTube = YouTubeAPI()
