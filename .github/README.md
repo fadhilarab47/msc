@@ -8,7 +8,7 @@
 - Py-tgcalls Updated
 - Fastest vc bot on telegram
 
-## Basic Bot Commands :
+## 🔗 Basic Bot Commands :
 
 - `/play <song name>` - play song you requested
 - `/vplay <song name>` - play video you requested
@@ -20,7 +20,7 @@
 - `/end` - stop music play
 
 
-## Mandatory Bot Variable's: 
+## 🔗 Mandatory Bot Variable's: 
 
 - ``API_ID``
 - ``API_HASH``
@@ -46,6 +46,6 @@
 href="https://heroku.com/deploy?template=https://github.com/BikashHalderNew/BgtMusicV2"><img src="https://img.shields.io/badge/Deploy%20On%20Heroku-grey?style=for-the-badge&logo=Heroku" width="220"
 hieght="38.30" /></a>
 
-## Support & Updates ⚡ :
+## 🔗 Support & Updates :
 
 <a href="https://t.me/bgt_chat"><img src="https://img.shields.io/badge/Join-Group%20Support-darkblue.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/BikashGadgetsTech"><img src="https://img.shields.io/badge/Join-Updates%20Channel-darkblue.svg?style=for-the-badge&logo=Telegram"></a>
