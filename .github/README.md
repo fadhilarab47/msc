@@ -31,7 +31,9 @@
 - ``STRING_SESSION``
 
 
-### Generate your string session through termux choose always Pyrogram-2.0 :
+## 🔗 Termux Session :
+
+<h3>Generate your string session through termux choose Pyrogram-2.0<h3>
 
 <a href="https://github.com/AdityaHalder/PGV2-STRING"> <img src="https://img.shields.io/badge/Termux%20Session-black?style=for-the-badge&logo=github" width="220" height="38.45"/>
 
