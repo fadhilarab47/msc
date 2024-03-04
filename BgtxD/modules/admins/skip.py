@@ -5,7 +5,7 @@ from BgtxD import config
 from BgtxD.config import BANNED_USERS
 from BgtxD.power import get_command
 from BgtxD import YouTube, app
-from BgtxD.core.call import BIKASH
+from BgtxD.centre.call import BIKASH
 from BgtxD.misc import db
 from BgtxD.utility.database import get_loop
 from BgtxD.utility.decorators import AdminRightsCheck
