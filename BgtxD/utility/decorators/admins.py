@@ -15,7 +15,7 @@ from BgtxD.utility.database import (
     is_maintenance, 
     is_nonadmin_chat,
 )
-from BgtxD.utility.formatters import int_to_alpha
+from ..formatters import int_to_alpha
 
 def AdminRightsCheck(mystic):
     async def wrapper(client, message):
