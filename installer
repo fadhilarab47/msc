@@ -12,7 +12,7 @@ ntgcalls
 pillow
 psutil
 pykeyboard
-py-tgcalls
+py-tgcalls==1.2.7
 python-dotenv
 pyyaml
 requests
