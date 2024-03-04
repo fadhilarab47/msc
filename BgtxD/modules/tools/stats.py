@@ -17,7 +17,7 @@ from BgtxD.config import BANNED_USERS, MUSIC_BOT_NAME
 from BgtxD.power import get_command
 from BgtxD import YouTube, app
 from BgtxD.centre.userbot import assistants
-from BgtxD.misc import SUDOERS, pymongodb
+from BgtxD.misc import SUDOERS, mongodb
 from BgtxD.modules import ALL_MODULES
 from BgtxD.utility.database import (get_global_tops,
                                        get_particulars, get_queries,
