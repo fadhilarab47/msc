@@ -5,7 +5,7 @@ from BgtxD import YouTube, app
 from BgtxD.power import get_string
 from pyrogram.enums import ChatMemberStatus
 from BgtxD.utility.exceptions import AssistantErr
-from BgtxD.utility.inline.playlist import botplaylist_markup
+from BgtxD.utility.buttons.playlist import botplaylist_markup
 from BgtxD.utility.database.memorydatabase import is_maintenance
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from BgtxD.config import PLAYLIST_IMG_URL, PRIVATE_BOT_MODE, adminlist
