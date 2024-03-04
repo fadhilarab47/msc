@@ -25,7 +25,7 @@ for filename in os.listdir(r"./BgtxD/power"):
     if filename.endswith(".yml"):
         language_name = filename[:-4]
         commands[language_name] = yaml.safe_load(
-            open(r"./BgtxD/power" + filename, encoding="utf8")
+            open(r"./BgtxD/power/" + filename, encoding="utf8")
         )
 
 
