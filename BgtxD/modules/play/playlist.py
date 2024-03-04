@@ -15,7 +15,7 @@ from BgtxD.utility.database import (delete_playlist, get_playlist,
                                        get_playlist_names,
                                        save_playlist)
 from BgtxD.utility.decorators.language import language, languageCB
-from YukkiMusic.utility.inline.playlist import (botplaylist_markup,
+from BgtxD.utility.buttons.playlist import (botplaylist_markup,
                                               get_playlist_markup,
                                               warning_markup)
 from BgtxD.utility.pastebin import BINNER
