@@ -21,7 +21,7 @@ from BgtxD import config
 from BgtxD.power import get_string
 from BgtxD import LOGGER, YouTube, app
 from BgtxD.misc import db
-from BgtxD.utility.botdata import (add_active_chat,
+from BgtxD.utility.database import (add_active_chat,
                                        add_active_video_chat,
                                        get_assistant,
                                        get_audio_bitrate, get_lang,
@@ -31,11 +31,11 @@ from BgtxD.utility.botdata import (add_active_chat,
                                        remove_active_chat,
                                        remove_active_video_chat,
                                        set_loop)
-from BgtxD.utility.restriction import AssistantErr
+from BgtxD.utility.exceptions import AssistantErr
 from BgtxD.utility.buttons.play import (stream_markup,
                                           telegram_markup)
-from BgtxD.utility.player.autoclear import auto_clean
-from BgtxD.utility.banners import gen_thumb
+from BgtxD.utility.stream.autoclear import auto_clean
+from BgtxD.utility.thumbnails import gen_thumb
 
 autoend = {}
 counter = {}
