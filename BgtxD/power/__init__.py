@@ -29,7 +29,7 @@ for filename in os.listdir(r"./BgtxD/power"):
 for filename in os.listdir(r"./BgtxD/power/langs/"):
     if "en" not in languages:
         languages["eng"] = yaml.safe_load(
-            open(r"./BgtxD/power/langs/en.yml", encoding="utf8")
+            open(r"./BgtxD/power/langs/eng.yml", encoding="utf8")
         )
     if filename.endswith(".yml"):
         language_name = filename[:-4]
