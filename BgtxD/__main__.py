@@ -50,7 +50,6 @@ async def init():
         "Successfully Imported Modules "
     )
     await userbot.start()
-    await BIKASH.start()
     await BIKASH.decorators()
     LOGGER("BgtxD").info("BGT Music Bot Started Successfully")
     await idle()
