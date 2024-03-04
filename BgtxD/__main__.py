@@ -69,4 +69,4 @@ async def init():
 
 if __name__ == "__main__":
     loop.run_until_complete(init())
-    LOGGER("YukkiMusic").info("Stopping Yukki Music Bot! GoodBye")
+    LOGGER("BgtxD").info("Stopping BGT Music Bot! GoodBye")
