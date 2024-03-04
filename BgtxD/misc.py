@@ -3,7 +3,7 @@ import socket
 import heroku3
 from pyrogram import filters
 from BgtxD import config
-from BgtxD.centre.mongo import pymongodb
+from BgtxD.centre.mongo import mongodb
 from BgtxD.logging import LOGGER
 
 SUDOERS = filters.user()
@@ -46,7 +46,7 @@ def sudo():
         for user_id in OWNER:
             SUDOERS.add(user_id)
     else:
-        sudoersdb = pymongodb.sudoers
+        sudoersdb = mongodb.sudoers
         sudoers = sudoersdb.find_one({"sudo": "sudo"})
         sudoers = [] if not sudoers else sudoers["sudoers"]
         for user_id in OWNER:
