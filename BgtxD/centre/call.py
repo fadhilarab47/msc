@@ -20,7 +20,7 @@ from pytgcalls.types.stream import StreamAudioEnded
 from BgtxD import config
 from BgtxD.power import get_string
 from BgtxD import LOGGER, YouTube, app
-from BgtxD.extra import db
+from BgtxD.misc import db
 from BgtxD.utility.botdata import (add_active_chat,
                                        add_active_video_chat,
                                        get_assistant,
