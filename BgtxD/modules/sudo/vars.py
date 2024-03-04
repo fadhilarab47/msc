@@ -122,4 +122,4 @@ async def varsFunc(client, message):
 `START_IMG_URL` : ** {start}**
     """
     await asyncio.sleep(1)
-      await mystic.edit_text(text)
+    await mystic.edit_text(text)
