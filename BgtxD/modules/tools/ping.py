@@ -5,7 +5,7 @@ from datetime import datetime
 from pyrogram import filters
 from pyrogram.types import Message
 
-from config import BANNED_USERS, MUSIC_BOT_NAME, PING_IMG_URL
+from BgtxD.config import BANNED_USERS, MUSIC_BOT_NAME, PING_IMG_URL
 from BgtxD.power import get_command
 from BgtxD import app
 from BgtxD.centre.call import BIKASH
