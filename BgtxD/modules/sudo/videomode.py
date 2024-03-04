@@ -3,7 +3,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from BgtxD import config
-from BgtxD.strings import get_command
+from BgtxD.power import get_command
 from BgtxD import app
 from BgtxD.misc import SUDOERS
 from BgtxD.utility.database import add_off, add_on
