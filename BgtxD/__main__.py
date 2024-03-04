@@ -2,8 +2,6 @@ import asyncio
 import importlib
 
 from pyrogram import idle
-from pytgcalls.exceptions import NoActiveGroupCall
-
 from BgtxD import config
 from BgtxD import LOGGER, app, userbot
 from BgtxD.centre.call import BIKASH
@@ -39,15 +37,6 @@ async def init():
     LOGGER("BgtxD.modules").info("Successfully Imported Modules...")
     await userbot.start()
     await BIKASH.start()
-    try:
-        await BIKASH.stream_call("https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4")
-    except NoActiveGroupCall:
-        LOGGER("BgtxD").error(
-            "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
-        )
-        exit()
-    except:
-        pass
     await BIKASH.decorators()
     LOGGER("BgtxD").info(
         "BGT Started"
