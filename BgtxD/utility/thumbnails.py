@@ -1,7 +1,7 @@
 import os
 import re
 import textwrap
-
+import numpy as np
 import aiofiles
 import aiohttp
 from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
@@ -19,6 +19,16 @@ def changeImageSize(maxWidth, maxHeight, image):
     newImage = image.resize((newWidth, newHeight))
     return newImage
 
+
+def circle(img):
+    h, w = img.size
+    a = Image.new('L', [h, w], 0)
+    b = ImageDraw.Draw(a)
+    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white")
+    c = np.array(img)
+    d = np.array(a)
+    e = np.dstack((c, d))
+    return Image.fromarray(e)
 
 async def gen_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
@@ -57,26 +67,19 @@ async def gen_thumb(videoid):
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
+        zyoutube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
-        Xcenter = youtube.width / 2
-        Ycenter = youtube.height / 2
-        x1 = Xcenter - 250
-        y1 = Ycenter - 250
-        x2 = Xcenter + 250
-        y2 = Ycenter + 250
-        logo = youtube.circle((x1, y1, x2, y2))
-        logo.thumbnail((520, 520), Image.ANTIALIAS)
-        logo = ImageOps.expand(logo, border=15, fill="white")
-        background.paste(logo, (50, 100))
+        y = circle(zyoutube).resize((474, 474))
+        background.paste(y, (50, 100), mask=y)  # Adjusted placement of YouTube circle image
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("assets/font2.ttf", 40)
-        font2 = ImageFont.truetype("assets/font2.ttf", 70)
-        arial = ImageFont.truetype("assets/font2.ttf", 30)
-        name_font = ImageFont.truetype("assets/font.ttf", 30)
+        font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
+        font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 70)
+        arial = ImageFont.truetype("BgtxD/power/font2.ttf", 30)
+        name_font = ImageFont.truetype("BgtxD/power/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
