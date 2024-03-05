@@ -1,7 +1,8 @@
+
 import os
 import re
 import textwrap
-import numpy as np
+
 import aiofiles
 import aiohttp
 from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
@@ -19,16 +20,6 @@ def changeImageSize(maxWidth, maxHeight, image):
     newImage = image.resize((newWidth, newHeight))
     return newImage
 
-
-def circle(img):
-    h, w = img.size
-    a = Image.new('L', [h, w], 0)
-    b = ImageDraw.Draw(a)
-    b.pieslice([(0, 0), (h, w)], 0, 360, fill=1500, outline="white")
-    c = np.array(img)
-    d = np.array(a)
-    e = np.dstack((c, d))
-    return Image.fromarray(e)
 
 async def gen_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
@@ -72,21 +63,29 @@ async def gen_thumb(videoid):
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
-        logo = circle(youtube).resize((474, 474))
-        background.paste(logo, (50, 100))  # Adjusted placement of YouTube circle image
+        Xcenter = youtube.width / 2
+        Ycenter = youtube.height / 2
+        x1 = Xcenter - 250
+        y1 = Ycenter - 300
+        x2 = Xcenter + 250
+        y2 = Ycenter + 300
+        logo = youtube.crop((x1, y1, x2, y2))
+        logo.thumbnail((520, 600))
+        logo = ImageOps.expand(logo, border=15, fill="white")
+        background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
-        font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 70)
-        arial = ImageFont.truetype("BgtxD/power/font2.ttf", 30)
-        name_font = ImageFont.truetype("BgtxD/power/font.ttf", 30)
+        font = ImageFont.truetype("BgtxD/power/font2.ttf", 2)
+        font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 2)
+        arial = ImageFont.truetype("BgtxD/power/font2.ttf", 2)
+        name_font = ImageFont.truetype("BgtxD/powerfont.ttf", 2)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (5, 5), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
+            (5, 5), f"", fill="white", font=name_font
         )
         draw.text(
             (600, 150),
-            "NOW PLAYING",
+            "",
             fill="white",
             stroke_width=2,
             stroke_fill="white",
@@ -116,19 +115,19 @@ async def gen_thumb(videoid):
 
         draw.text(
             (600, 450),
-            f"Views : {views[:23]}",
+            f"",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
             (600, 500),
-            f"Duration : {duration[:23]} Mins",
+            f"",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
             (600, 550),
-            f"Channel : {channel}",
+            f"",
             (255, 255, 255),
             font=arial,
         )
