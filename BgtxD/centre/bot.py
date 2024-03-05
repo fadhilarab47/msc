@@ -25,7 +25,7 @@ class BGT(Client):
         self.id = get_me.id
         try:
             await self.send_message(
-                config.LOG_GROUP_ID, "Bot Started\n\nAssistant Started"
+                config.LOG_GROUP_ID, "Bot Started"
             )
         except:
             LOGGER(__name__).error(
