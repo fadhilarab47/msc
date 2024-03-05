@@ -16,7 +16,7 @@ from BgtxD.config import BANNED_USERS, MUSIC_BOT_NAME
 from BgtxD.power import get_command
 from BgtxD import YouTube, app
 from BgtxD.centre.userbot import assistants
-from BgtxD.misc import SUDOERS, mongodb
+from BgtxD.misc import SUDOERS, pymongodb
 from BgtxD.modules import ALL_MODULES
 from BgtxD.utility.database import (get_global_tops,
                                        get_particulars, get_queries,
@@ -341,7 +341,7 @@ async def overall_stats(client, CallbackQuery, _):
     free = hdd.free / (1024.0**3)
     free = str(free)
     mod = len(ALL_MODULES)
-    db = mongodb
+    db = pymongodb
     call = db.command("dbstats")
     datasize = call["dataSize"] / 1024
     datasize = str(datasize)
