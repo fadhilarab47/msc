@@ -16,7 +16,7 @@ from pytgcalls.types import (JoinedGroupCallParticipant,
                              LeftGroupCallParticipant, Update)
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.stream import StreamAudioEnded
-from pyrogram import enums
+from pyrogram.enums import ChatMemberStatus
 from BgtxD import config
 from BgtxD.power import get_string
 from BgtxD import LOGGER, YouTube, app
