@@ -68,13 +68,13 @@ async def gen_thumb(videoid):
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
         zyoutube = Image.open(f"cache/thumb{videoid}.png")
-        y = circle(zyoutube).resize((474, 474))
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
-        background.paste(y, (50, 100))
+        y = circle(zyoutube).resize((474, 474))
+        background.paste(y, (50, 100), mask=y)  # Adjusted placement of YouTube circle image
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
         font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 70)
