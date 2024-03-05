@@ -67,7 +67,6 @@ async def gen_thumb(videoid):
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        zyoutube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
@@ -80,7 +79,8 @@ async def gen_thumb(videoid):
         x2 = Xcenter + 250
         y2 = Ycenter + 250
         logo = youtube.crop((x1, y1, x2, y2))
-        logo = circle(youtube).resize((520, 520))
+        logo.circle((520, 520), Image.LANCZOS)
+      # logo = circle(youtube).resize((520, 520))
         logo = ImageOps.expand(logo, border=15, fill="white")
         background.paste(logo, (50, 100))  # Adjusted placement of YouTube circle image
         draw = ImageDraw.Draw(background)
