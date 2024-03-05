@@ -1,11 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
 
 import asyncio
 from datetime import datetime, timedelta
@@ -24,12 +16,12 @@ from pytgcalls.types import (JoinedGroupCallParticipant,
                              LeftGroupCallParticipant, Update)
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.stream import StreamAudioEnded
-
-import config
-from strings import get_string
-from YukkiMusic import LOGGER, YouTube, app
-from YukkiMusic.misc import db
-from YukkiMusic.utils.database import (add_active_chat,
+from pyrogram import enums
+from BgtxD import config
+from BgtxD.power import get_string
+from BgtxD import LOGGER, YouTube, app
+from BgtxD.misc import db
+from BgtxD.utility.database import (add_active_chat,
                                        add_active_video_chat,
                                        get_assistant,
                                        get_audio_bitrate, get_lang,
@@ -39,11 +31,11 @@ from YukkiMusic.utils.database import (add_active_chat,
                                        remove_active_chat,
                                        remove_active_video_chat,
                                        set_loop)
-from YukkiMusic.utils.exceptions import AssistantErr
-from YukkiMusic.utils.inline.play import (stream_markup,
+from BgtxD.utility.exceptions import AssistantErr
+from BgtxD.utility.buttons.play import (stream_markup,
                                           telegram_markup)
-from YukkiMusic.utils.stream.autoclear import auto_clean
-from YukkiMusic.utils.thumbnails import gen_thumb
+from BgtxD.utility.stream.autoclear import auto_clean
+from BgtxD.utility.thumbnails import gen_thumb
 
 autoend = {}
 counter = {}
@@ -59,50 +51,55 @@ async def _clear_(chat_id):
 class Call(PyTgCalls):
     def __init__(self):
         self.userbot1 = Client(
+            "BgtString1",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_name=str(config.STRING1),
+            session_string=str(config.STRING1),
         )
         self.one = PyTgCalls(
             self.userbot1,
             cache_duration=100,
         )
         self.userbot2 = Client(
+            "BgtString2",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_name=str(config.STRING2),
+            session_string=str(config.STRING2),
         )
         self.two = PyTgCalls(
             self.userbot2,
             cache_duration=100,
         )
         self.userbot3 = Client(
+            "BgtString3",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_name=str(config.STRING3),
+            session_string=str(config.STRING3),
         )
         self.three = PyTgCalls(
             self.userbot3,
             cache_duration=100,
         )
         self.userbot4 = Client(
+            "BgtString4",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_name=str(config.STRING4),
+            session_string=str(config.STRING4),
         )
         self.four = PyTgCalls(
             self.userbot4,
             cache_duration=100,
         )
         self.userbot5 = Client(
+            "BgtString5",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            session_name=str(config.STRING5),
+            session_string=str(config.STRING5),
         )
         self.five = PyTgCalls(
             self.userbot5,
             cache_duration=100,
-        )
+      )
 
     async def pause_stream(self, chat_id: int):
         assistant = await group_assistant(self, chat_id)
@@ -623,4 +620,4 @@ class Call(PyTgCalls):
                 autoend[chat_id] = {}
 
 
-Yukki = Call()
+BIKASH = Call()
