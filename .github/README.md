@@ -2,11 +2,11 @@
 
 <h4>Bot detailed info!</h4>
 
-- Pyrogram 2.0
+- Latest pyrogram version
 - Feel no lag while playing songs
 - Zero downtime
 - Fast Download Song From Server
-- Py-tgcalls Updated
+- Latest py-tgcalls version
 - Fastest vc bot on telegram
 
 ## 🔗 Termux Session :
