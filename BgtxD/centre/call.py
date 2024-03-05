@@ -202,8 +202,7 @@ class Call(PyTgCalls):
                 get = await app.get_chat_member(chat_id, userbot.id)
             except ChatAdminRequired:
                 raise AssistantErr(_["call_1"])
-            if get.status == ChatMemberStatus.BANNED
-                    or get.status == ChatMemberStatus.RESTRICTED:
+            if get.status == ChatMemberStatus.BANNED or get.status == ChatMemberStatus.RESTRICTED:
                 raise AssistantErr(
                     _["call_2"].format(userbot.username, userbot.id)
                 )
@@ -244,9 +243,9 @@ class Call(PyTgCalls):
                         invitelink = invitelink.replace(
                             "https://t.me/+", "https://t.me/joinchat/"
                         )
-                    await asyncio.sleep(3)
+                    await asyncio.sleep(0.001)
                     await userbot.join_chat(invitelink)
-                    await asyncio.sleep(4)
+                    await asyncio.sleep(0.001)
                     await m.edit(_["call_6"].format(userbot.name))
                 except UserAlreadyParticipant:
                     pass
