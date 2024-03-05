@@ -11,8 +11,9 @@ motor
 pillow
 psutil
 pykeyboard
-pyrogram==2.0.106
-py-tgcalls==0.9.7
+pyrogram
+py-tgcalls
+ntgcalls
 python-dotenv
 pyyaml
 requests
