@@ -1,4 +1,4 @@
-## 🔗 Features :
+## 🔗 Features : 
 
 - Pyrogram 2.0
 - Feel no lag while playing songs
