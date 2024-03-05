@@ -1,17 +1,17 @@
-
-import asyncio
-from BgtxD.misc import SUDOERS
-from BgtxD import YouTube, app
-from BgtxD.power import get_string
-from pyrogram.enums import ChatMemberStatus
-from BgtxD.utility.exceptions import AssistantErr
-from BgtxD.utility.buttons.playlist import botplaylist_markup
-from BgtxD.utility.database.memorydatabase import is_maintenance
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 from BgtxD.config import PLAYLIST_IMG_URL, PRIVATE_BOT_MODE, adminlist
-from pyrogram.errors import ChatAdminRequired, UserAlreadyParticipant, UserNotParticipant
-from BgtxD.utility.database import get_cmode, get_lang, get_playmode, get_playtype, is_active_chat, is_commanddelete_on, is_served_private_chat
-from BgtxD.utility.database import add_active_chat, add_active_video_chat, get_assistant, get_audio_bitrate, get_lang, get_loop, get_video_bitrate, group_assistant, is_autoend, music_on, mute_off, remove_active_chat, remove_active_video_chat, set_loop
+from BgtxD.power import get_string
+from BgtxD import YouTube, app
+from BgtxD.misc import SUDOERS
+from BgtxD.utility.database import (get_cmode, get_lang,
+                                       get_playmode, get_playtype,
+                                       is_active_chat,
+                                       is_commanddelete_on,
+                                       is_served_private_chat)
+from BgtxD.utility.database.memorydatabase import is_maintenance
+from BgtxD.utility.buttons.playlist import botplaylist_markup
+
 
 def PlayWrapper(command):
     async def wrapper(client, message):
@@ -113,66 +113,6 @@ def PlayWrapper(command):
             fplay = True
         else:
             fplay = None
-        userbot = await get_assistant(chat_id)
-        try:
-                try:
-                    get = await app.get_chat_member(chat_id, userbot.id)
-                except ChatAdminRequired:
-                    return await message.reply_text(_["call_1"])
-                if (
-                    get.status == ChatMemberStatus.BANNED
-                    or get.status == ChatMemberStatus.LEFT
-                ):
-                    return await message.reply_text(
-                        _["call_2"].format(userbot.username, userbot.id)
-                        )
-        except UserNotParticipant:
-            chat = await app.get_chat(chat_id)
-            if chat.username:
-                try:
-                    await userbot.join_chat(chat.username)
-                except UserAlreadyParticipant:
-                    pass
-                except Exception as e:
-                    raise AssistantErr(_["call_3"].format(e))
-            else:
-                try:
-                    try:
-                        try:
-                            invitelink = chat.invite_link
-                            if invitelink is None:
-                                invitelink = (
-                                    await app.export_chat_invite_link(
-                                        chat_id
-                                    )
-                                )
-                        except:
-                            invitelink = (
-                                await app.export_chat_invite_link(
-                                    chat_id
-                                )
-                            )
-                    except ChatAdminRequired:
-                        raise AssistantErr(_["call_4"])
-                    except Exception as e:
-                        raise AssistantErr(e)
-                    m = await app.send_message(
-                        chat_id, _["call_5"]
-                    )
-                    if invitelink.startswith("https://t.me/+"):
-                        invitelink = invitelink.replace(
-                            "https://t.me/+", "https://t.me/joinchat/"
-                        )
-                    await asyncio.sleep(0.0001)
-                    await userbot.join_chat(invitelink)
-                    await asyncio.sleep(0.00001)
-                    await m.edit(_["call_6"].format(userbot.name))
-                except UserAlreadyParticipant:
-                    pass
-                except Exception as e:
-                    raise AssistantErr(_["call_3"].format(e))
-                    await message.reply_text(_["call_3"])
-                  
         return await command(
             client,
             message,
