@@ -70,14 +70,14 @@ async def gen_thumb(videoid):
         x2 = Xcenter + 250
         y2 = Ycenter + 250
         logo = youtube.crop((x1, y1, x2, y2))
-        logo.thumbnail((520, 600))
+        logo.thumbnail((520, 900))
         logo = ImageOps.expand(logo, border=15, fill="white")
         background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("BgtxD/power/font2.ttf", 2)
-        font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 2)
-        arial = ImageFont.truetype("BgtxD/power/font2.ttf", 2)
-        name_font = ImageFont.truetype("BgtxD/power/font.ttf", 2)
+        font = ImageFont.truetype("BgtxD/power/font2.ttf", 1)
+        font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 1)
+        arial = ImageFont.truetype("BgtxD/power/font2.ttf", 1)
+        name_font = ImageFont.truetype("BgtxD/power/font.ttf", 1)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
