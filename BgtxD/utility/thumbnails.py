@@ -77,7 +77,7 @@ async def gen_thumb(videoid):
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 2)
         font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 2)
         arial = ImageFont.truetype("BgtxD/power/font2.ttf", 2)
-        name_font = ImageFont.truetype("BgtxD/powerfont.ttf", 2)
+        name_font = ImageFont.truetype("BgtxD/power/font.ttf", 2)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
