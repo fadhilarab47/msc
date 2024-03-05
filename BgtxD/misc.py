@@ -6,7 +6,7 @@ import heroku3
 from pyrogram import filters
 
 from BgtxD import config
-from BgtxD.centre.mongo import pymongodb
+from BgtxD.centre.mongo import mongodb
 
 from .logging import LOGGER
 
