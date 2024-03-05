@@ -1,4 +1,4 @@
-## 🔗 Features : 
+## 🔗 Bot Features : 
 
 - Pyrogram 2.0
 - Feel no lag while playing songs
@@ -6,29 +6,6 @@
 - Fast Download Song From Server
 - Py-tgcalls Updated
 - Fastest vc bot on telegram
-
-## 🔗 Basic Bot Commands :
-
-- `/play <song name>` - play song you requested
-- `/vplay <song name>` - play video you requested
-- `/song <song name>` - download songs you want quickly
-- `/ping` - Bot Online OR Offine
-- `/pause` - pause song play
-- `/resume` - resume song play
-- `/skip` - play next song
-- `/end` - stop music play
-
-
-## 🔗 Mandatory Bot Variable's: 
-
-- ``API_ID``
-- ``API_HASH``
-- ``BOT_TOKEN``
-- ``MUSIC_BOT_NAME``
-- ``MONGO_DB_URI``
-- ``OWNER_ID``
-- ``STRING_SESSION``
-
 
 ## 🔗 Termux Session :
 
