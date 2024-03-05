@@ -312,7 +312,7 @@ class Call(PyTgCalls):
                     minutes=AUTO_END_TIME
                 )
 
-    async def change_stream(self, client, chat_id):
+   async def change_stream(self, client, chat_id):
         check = db.get(chat_id)
         popped = None
         loop = await get_loop(chat_id)
@@ -508,7 +508,7 @@ class Call(PyTgCalls):
                     db[chat_id][0]["mystic"] = run
                     db[chat_id][0]["markup"] = "stream"
 
-  async def ping(self):
+   async def ping(self):
         pings = []
         if config.STRING1:
             pings.append(await self.one.ping)
@@ -522,7 +522,7 @@ class Call(PyTgCalls):
             pings.append(await self.five.ping)
         return str(round(sum(pings) / len(pings), 3))
 
-    async def start(self):
+   async def start(self):
         LOGGER(__name__).info("Starting PyTgCalls Client\n")
         if config.STRING1:
             await self.one.start()
