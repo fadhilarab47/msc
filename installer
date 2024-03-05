@@ -15,6 +15,7 @@ pyrogram
 py-tgcalls
 ntgcalls
 python-dotenv
+numpy
 pyyaml
 requests
 speedtest-cli
