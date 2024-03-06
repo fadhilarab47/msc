@@ -22,12 +22,14 @@ def changeImageSize(maxWidth, maxHeight, image):
 
 def circle(img):
     h, w = img.size
-    mask = Image.new("L", (w, h), 0)
-    draw = ImageDraw.Draw(mask)
-    draw.ellipse((0, 0, w, h), fill=255)
-    masked_img = Image.new("RGBA", (w, h))
-    masked_img.paste(img, (0, 0), mask)
-    return masked_img
+    a = Image.new('L', [h, w], 0)
+    b = ImageDraw.Draw(a)
+    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white")
+    c = np.array(img)
+    d = np.array(a)
+    e = np.dstack((c, d))
+    return Image.fromarray(e)
+
 
 
 async def gen_thumb(videoid):
@@ -73,7 +75,7 @@ async def gen_thumb(videoid):
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
         logo = circle(youtube).resize((474, 474))
-        logo = ImageOps.expand(logo, border=5, fill="white")
+    #   logo = ImageOps.expand(logo, border=5, fill="white")
         background.paste(logo, (50, 100), mask=logo)  # Adjusted placement of YouTube circle image
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
