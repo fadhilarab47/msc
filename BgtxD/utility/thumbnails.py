@@ -24,7 +24,7 @@ def circle(img):
     h, w = img.size
     a = Image.new('L', [h, w], 0)
     b = ImageDraw.Draw(a)
-    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white")
+    b.pieslice([(0, 0), (h, w)], 0, 360, fill="white", outline=255)
     c = np.array(img)
     d = np.array(a)
     e = np.dstack((c, d))
@@ -74,7 +74,7 @@ async def gen_thumb(videoid):
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
         y = circle(zyoutube).resize((474, 474))
-        background.paste(y, (50, 100), mask=y)  # Adjusted placement of YouTube circle image
+        background.paste(y, (50, 100))  # Adjusted placement of YouTube circle image
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
         font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 70)
