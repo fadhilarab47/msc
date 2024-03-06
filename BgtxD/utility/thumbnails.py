@@ -71,7 +71,7 @@ async def gen_thumb(videoid):
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(background)
-        background = enhancer.enhance(0.6)
+        background = enhancer.enhance(1.0)
         logo = circle(youtube).resize((474, 474))
         background.paste(logo, (50, 100), mask=logo)  # Adjusted placement of YouTube circle image
         draw = ImageDraw.Draw(background)
@@ -86,7 +86,7 @@ async def gen_thumb(videoid):
         )
         draw.text(
             (600, 150),
-            "NOW PLAYING",
+            "BGT PLAYER",
             fill="white",
             stroke_width=2,
             stroke_fill="yellow",
@@ -99,8 +99,8 @@ async def gen_thumb(videoid):
                     (600, 340),
                     f"{line}",
                     fill="yellow",
-                    stroke_width=1,
-                    stroke_fill="white",
+                    stroke_width=3,
+                    stroke_fill="yellow",
                     font=font,
                 )
             if j == 0:
@@ -109,8 +109,8 @@ async def gen_thumb(videoid):
                     (600, 280),
                     f"{line}",
                     fill="yellow",
-                    stroke_width=1,
-                    stroke_fill="white",
+                    stroke_width=3,
+                    stroke_fill="yellow",
                     font=font,
                 )
 
