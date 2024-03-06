@@ -24,7 +24,7 @@ def circle(img):
     h, w = img.size
     a = Image.new('L', [h, w], 0)
     b = ImageDraw.Draw(a)
-    b.pieslice([(960,240), (1230,510)], 0, 360,outline ='multicolour',width=10)
+    b.pieslice([(960,240), (1230,510)], 0, 360, outline ='multicolour', width=10)
 #   b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white")
     c = np.array(img)
     d = np.array(a)
@@ -119,27 +119,18 @@ async def gen_thumb(videoid):
             (600, 450),
             f"Views : {views[:23]}",
             (255, 255, 255),
-            fill="yellow",
-            stroke_width=1,
-            stroke_fill="white",
             font=font,
         )
         draw.text(
             (600, 500),
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
-            fill="yellow",
-            stroke_width=1,
-            stroke_fill="white",
             font=font,
         )
         draw.text(
             (600, 550),
             f"Channel : {channel}",
             (255, 255, 255),
-            fill="yellow",
-            stroke_width=1,
-            stroke_fill="white",
             font=font,
         )
         try:
