@@ -120,7 +120,6 @@ async def gen_thumb(videoid):
             f"Views : {views[:23]}",
             (255, 255, 255),
             fill="white",
-            stroke_width=1,
             stroke_fill="yellow",
             font=font,
         )
@@ -129,7 +128,6 @@ async def gen_thumb(videoid):
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
             fill="white",
-            stroke_width=1,
             stroke_fill="yellow",
             font=font,
         )
@@ -138,7 +136,6 @@ async def gen_thumb(videoid):
             f"Channel : {channel}",
             (255, 255, 255),
             fill="white",
-            stroke_width=1,
             stroke_fill="yellow",
             font=font,
         )
