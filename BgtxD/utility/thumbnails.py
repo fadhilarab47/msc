@@ -26,10 +26,10 @@ def circle(img):
     b = ImageDraw.Draw(a)
     
     # Draw outer pie slice
-    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white")
+    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="White", width=10)
     
     # Draw inner pie slice to create border effect
-    b.pieslice([(70, 70), (h - 70, w - 70)], 0, 360, fill=0, outline="white", width=10)  # White border with width 10
+    b.pieslice([(70, 70), (h - 70, w - 70)], 0, 360, fill=255, outline="white", width=10)  # White border with width 10
     
     c = np.array(img)
     d = np.array(a)
