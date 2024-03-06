@@ -62,7 +62,7 @@ async def gen_thumb(videoid):
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(background)
-        background = enhancer.enhance(0.6)
+        background = enhancer.enhance(1.0)
         Xcenter = youtube.width / 2
         Ycenter = youtube.height / 2
         x1 = Xcenter - 250
@@ -70,8 +70,8 @@ async def gen_thumb(videoid):
         x2 = Xcenter + 250
         y2 = Ycenter + 250
         logo = youtube.crop((x1, y1, x2, y2))
-        logo.thumbnail((520, 900))
-        logo = ImageOps.expand(logo, border=15, fill="white")
+        logo.thumbnail((900, 900))
+        logo = ImageOps.expand(logo, border=15, fill="blue")
         background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 1)
@@ -80,17 +80,7 @@ async def gen_thumb(videoid):
         name_font = ImageFont.truetype("BgtxD/power/font.ttf", 1)
         para = textwrap.wrap(title, width=32)
         j = 0
-        draw.text(
-            (5, 5), f"", fill="white", font=name_font
-        )
-        draw.text(
-            (600, 150),
-            "",
-            fill="white",
-            stroke_width=2,
-            stroke_fill="white",
-            font=font2,
-        )
+        
         for line in para:
             if j == 1:
                 j += 1
@@ -112,25 +102,6 @@ async def gen_thumb(videoid):
                     stroke_fill="white",
                     font=font,
                 )
-
-        draw.text(
-            (600, 450),
-            f"",
-            (255, 255, 255),
-            font=arial,
-        )
-        draw.text(
-            (600, 500),
-            f"",
-            (255, 255, 255),
-            font=arial,
-        )
-        draw.text(
-            (600, 550),
-            f"",
-            (255, 255, 255),
-            font=arial,
-        )
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
