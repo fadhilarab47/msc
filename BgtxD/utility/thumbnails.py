@@ -119,24 +119,18 @@ async def gen_thumb(videoid):
             (600, 450),
             f"Views : {views[:23]}",
             (255, 255, 255),
-            fill="white",
-            stroke_fill="yellow",
             font=font,
         )
         draw.text(
             (600, 500),
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
-            fill="white",
-            stroke_fill="yellow",
             font=font,
         )
         draw.text(
             (600, 550),
             f"Channel : {channel}",
             (255, 255, 255),
-            fill="white",
-            stroke_fill="yellow",
             font=font,
         )
         try:
