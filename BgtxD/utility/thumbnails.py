@@ -82,6 +82,8 @@ async def gen_thumb(videoid):
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
         logo = circle(youtube).resize((474, 474))
+        logo = ImageOps.expand(logo, border=15, fill="white")
+    #   background.paste(logo, (50, 100))
         background.paste(logo, (50, 100), mask=logo)  # Adjusted placement of YouTube circle image
         draw = ImageDraw.Draw(background)
         draw.pieslice([(0,0), (360, 360)], 0, 360, fill="blue", width=15)
