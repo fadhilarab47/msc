@@ -24,7 +24,7 @@ def circle(img):
     h, w = img.size
     a = Image.new('L', [h, w], 0)
     b = ImageDraw.Draw(a)
-    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white", width=2)  # White outline with width 2
+    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="blue", width=2)  # White outline with width 2
     c = np.array(img)
     d = np.array(a)
     e = np.dstack((c, d))
@@ -83,14 +83,14 @@ async def gen_thumb(videoid):
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (5, 5), f"{MUSIC_BOT_NAME}", fill="yellow", stroke_fill="white", font=name_font, stroke_width=1
+            (5, 5), f"{MUSIC_BOT_NAME}", fill="white", stroke_fill="yellow", font=name_font, stroke_width=1
         )
         draw.text(
             (600, 150),
             "BGT-PLAYER",
             fill="white",
             stroke_width=2,
-            stroke_fill="white",
+            stroke_fill="yellow",
             font=font2,
         )
         for line in para:
@@ -99,9 +99,9 @@ async def gen_thumb(videoid):
                 draw.text(
                     (600, 340),
                     f"{line}",
-                    fill="yellow",
+                    fill="white",
                     stroke_width=1,
-                    stroke_fill="white",
+                    stroke_fill="yellow",
                     font=font,
                 )
             if j == 0:
@@ -109,9 +109,9 @@ async def gen_thumb(videoid):
                 draw.text(
                     (600, 280),
                     f"{line}",
-                    fill="yellow",
+                    fill="white",
                     stroke_width=1,
-                    stroke_fill="white",
+                    stroke_fill="yellow",
                     font=font,
                 )
 
@@ -119,18 +119,27 @@ async def gen_thumb(videoid):
             (600, 450),
             f"Views : {views[:23]}",
             (255, 255, 255),
+            fill="white",
+            stroke_width=1,
+            stroke_fill="yellow",
             font=font,
         )
         draw.text(
             (600, 500),
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
+            fill="white",
+            stroke_width=1,
+            stroke_fill="yellow",
             font=font,
         )
         draw.text(
             (600, 550),
             f"Channel : {channel}",
             (255, 255, 255),
+            fill="white",
+            stroke_width=1,
+            stroke_fill="yellow",
             font=font,
         )
         try:
