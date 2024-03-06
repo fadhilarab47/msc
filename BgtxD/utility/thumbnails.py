@@ -63,45 +63,16 @@ async def gen_thumb(videoid):
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(1.0)
-        Xcenter = youtube.width / 2
-        Ycenter = youtube.height / 2
-        x1 = Xcenter - 250
-        y1 = Ycenter - 250
-        x2 = Xcenter + 250
-        y2 = Ycenter + 250
-        logo = youtube.crop((x1, y1, x2, y2))
+        
         logo.thumbnail((900, 900))
         logo = ImageOps.expand(logo, border=15, fill="blue")
-        background.paste(logo, (50, 100))
+        background.paste(logo, (100, 150))
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 1)
         font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 1)
         arial = ImageFont.truetype("BgtxD/power/font2.ttf", 1)
         name_font = ImageFont.truetype("BgtxD/power/font.ttf", 1)
-        para = textwrap.wrap(title, width=32)
-        j = 0
         
-        for line in para:
-            if j == 1:
-                j += 1
-                draw.text(
-                    (600, 340),
-                    f"{line}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
-            if j == 0:
-                j += 1
-                draw.text(
-                    (600, 280),
-                    f"{line}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
