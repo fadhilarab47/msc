@@ -82,13 +82,13 @@ async def gen_thumb(videoid):
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (5, 5), f"{MUSIC_BOT_NAME}", fill="yellow", font=name_font, stroke_width=4
+            (5, 5), f"{MUSIC_BOT_NAME}", fill="yellow", stroke_fill="white", font=name_font, stroke_width=1
         )
         draw.text(
             (600, 150),
-            "BGT PLAYER",
+            "BGT-PLAYER",
             fill="white",
-            stroke_width=3,
+            stroke_width=2,
             stroke_fill="white",
             font=font2,
         )
@@ -99,7 +99,7 @@ async def gen_thumb(videoid):
                     (600, 340),
                     f"{line}",
                     fill="yellow",
-                    stroke_width=4,
+                    stroke_width=1,
                     stroke_fill="white",
                     font=font,
                 )
@@ -109,7 +109,7 @@ async def gen_thumb(videoid):
                     (600, 280),
                     f"{line}",
                     fill="yellow",
-                    stroke_width=4,
+                    stroke_width=1,
                     stroke_fill="white",
                     font=font,
                 )
@@ -118,18 +118,27 @@ async def gen_thumb(videoid):
             (600, 450),
             f"Views : {views[:23]}",
             (255, 255, 255),
+            fill="yellow",
+            stroke_width=1,
+            stroke_fill="white",
             font=arial,
         )
         draw.text(
             (600, 500),
             f"Duration : {duration[:23]} Mins",
             (255, 255, 255),
+            fill="yellow",
+            stroke_width=1,
+            stroke_fill="white",
             font=arial,
         )
         draw.text(
             (600, 550),
             f"Channel : {channel}",
             (255, 255, 255),
+            fill="yellow",
+            stroke_width=1,
+            stroke_fill="white",
             font=arial,
         )
         try:
