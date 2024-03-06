@@ -85,6 +85,7 @@ async def gen_thumb(videoid):
         logo = circle(zyoutube).resize((474, 474))
         background.paste(logo, (50, 100), mask=logo)  # Adjusted placement of YouTube circle image
         draw = ImageDraw.Draw(background)
+        draw.pieslice([(0,0), (720,720)], 0, 360, fill = 255, outline = "white")
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
         font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 70)
         arial = ImageFont.truetype("BgtxD/power/font2.ttf", 30)
