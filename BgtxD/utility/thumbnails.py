@@ -26,10 +26,10 @@ def circle(img):
     b = ImageDraw.Draw(a)
     
     # Draw outer pie slice
-    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="blue", width=10)
+    b.pieslice([(0, 0), (h, w)], 0, 360, outline="blue", fill=15)
     
     # Draw inner pie slice to create border effect
-    b.pieslice([(70, 70), (h - 70, w - 70)], 0, 360, fill=255, outline="blue", width=10)  # White border with width 10
+    b.pieslice([(70, 70), (h - 70, w - 70)], 0, 360, outline="blue", fill=15)  # White border with width 10
     
     c = np.array(img)
     d = np.array(a)
@@ -84,7 +84,7 @@ async def gen_thumb(videoid):
         logo = circle(youtube).resize((474, 474))
         background.paste(logo, (50, 100), mask=logo)  # Adjusted placement of YouTube circle image
         draw = ImageDraw.Draw(background)
-        draw.pieslice([(0,0), (720, 720)], 0, 360, fill = 15, outline = "white")
+        draw.pieslice([(0,0), (720, 720)], 0, 360, fill = 15, outline = "blue")
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
         font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 70)
         arial = ImageFont.truetype("BgtxD/power/font2.ttf", 30)
