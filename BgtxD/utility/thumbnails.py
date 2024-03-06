@@ -24,7 +24,7 @@ def circle(img):
     h, w = img.size
     a = Image.new('L', [h, w], 0)
     b = ImageDraw.Draw(a)
-    b.pieslice([(0, 0), (h, w)], 0, 360, fill="blue", outline=255)
+    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="blue")
     c = np.array(img)
     d = np.array(a)
     e = np.dstack((c, d))
