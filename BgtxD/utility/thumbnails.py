@@ -1,15 +1,11 @@
 import os
 import re
 import textwrap
-import numpy as np
 import aiofiles
 import aiohttp
-from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
-                 ImageFont, ImageOps)
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 from youtubesearchpython.__future__ import VideosSearch
-
 from BgtxD.config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
-
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
@@ -18,19 +14,6 @@ def changeImageSize(maxWidth, maxHeight, image):
     newHeight = int(heightRatio * image.size[1])
     newImage = image.resize((newWidth, newHeight))
     return newImage
-
-
-def circle(img):
-    h, w = img.size
-    a = Image.new('L', [h, w], 0)
-    b = ImageDraw.Draw(a)
-    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white")
-    c = np.array(img)
-    d = np.array(a)
-    e = np.dstack((c, d))
-    return Image.fromarray(e)
-
-
 
 async def gen_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
@@ -69,14 +52,13 @@ async def gen_thumb(videoid):
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        zyoutube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"BgtxD/power/EXAMHEKAL.png")
+        bg = Image.open("BgtxD/power/EXAMHEKAL.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(20))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
-        y = circle(zyoutube).resize((474, 474))
+        y = Image.open("BgtxD/power/EXAMHEKAL.png").resize((474, 474))  # invisible png circle
         background.paste(y, (50, 100), mask=y)    # Adjusted placement of YouTube circle image
         image3 = bg.resize((1280, 720))
         image5 = image3.convert("RGBA")
@@ -143,7 +125,7 @@ async def gen_thumb(videoid):
             os.remove(f"cache/thumb{videoid}.png")
         except:
             pass
-        background.save(f"cache/{videoid}.png")
+        CuteImg.save(f"cache/{videoid}.png")
         return f"cache/{videoid}.png"
     except Exception:
         return YOUTUBE_IMG_URL
