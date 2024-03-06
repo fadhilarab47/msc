@@ -52,18 +52,19 @@ async def gen_thumb(videoid):
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
+        zyoutube = Image.open(f"cache/thumb{videoid}.png")
         bg = Image.open("BgtxD/power/EXAMHEKAL.png")
-        image1 = changeImageSize(1280, 720, youtube)
+        image1 = youtube.resize((1280, 720))
         image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(20))
+        background = image2.filter(filter=ImageFilter.BoxBlur(16))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
-        y = Image.open("BgtxD/power/EXAMHEKAL.png").resize((474, 474))  # invisible png circle
-        background.paste(y, (50, 100), mask=y)    # Adjusted placement of YouTube circle image
+        y = circle(zyoutube).resize((474, 474))
+        background.paste(y, (49, 125), mask=y)  # Adjusted placement of YouTube circle image
         image3 = bg.resize((1280, 720))
         image5 = image3.convert("RGBA")
-        CuteImg = Image.alpha_composite(background, image5)
-        draw = ImageDraw.Draw(CuteImg)
+        result_img = Image.alpha_composite(background, image5)
+        draw = ImageDraw.Draw(result_img)
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
         font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 70)
         arial = ImageFont.truetype("BgtxD/power/font2.ttf", 30)
