@@ -22,12 +22,13 @@ def changeImageSize(maxWidth, maxHeight, image):
 
 def circle(img):
     h, w = img.size
-    mask = Image.new("L", img.size, 0)
+    mask = Image.new("L", (w, h), 0)
     draw = ImageDraw.Draw(mask)
-    draw.ellipse([(0, 0), img.size], fill=255)
-    masked_img = Image.new("RGBA", img.size)
+    draw.ellipse((0, 0, w, h), fill=255)
+    masked_img = Image.new("RGBA", (w, h))
     masked_img.paste(img, (0, 0), mask)
     return masked_img
+
 
 async def gen_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
