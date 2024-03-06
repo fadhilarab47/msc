@@ -29,12 +29,13 @@ def circle(img):
     b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white")
     
     # Draw inner pie slice to create border effect
-    b.pieslice([(70, 70), (h - 70, w - 70)], 0, 360, fill=0, outline="white")
+    b.pieslice([(70, 70), (h - 70, w - 70)], 0, 360, fill=0, outline="white", width=10)  # White border with width 10
     
     c = np.array(img)
     d = np.array(a)
     e = np.dstack((c, d))
     return Image.fromarray(e)
+
 
 
 
