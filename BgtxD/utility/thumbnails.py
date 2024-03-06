@@ -24,7 +24,8 @@ def circle(img):
     h, w = img.size
     a = Image.new('L', [h, w], 0)
     b = ImageDraw.Draw(a)
-    b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white")
+    b.pieslice([(960,240), (1230,510)], 0, 360,outline ='multicolour',width=10)
+#   b.pieslice([(0, 0), (h, w)], 0, 360, fill=255, outline="white")
     c = np.array(img)
     d = np.array(a)
     e = np.dstack((c, d))
@@ -121,7 +122,7 @@ async def gen_thumb(videoid):
             fill="yellow",
             stroke_width=1,
             stroke_fill="white",
-            font=arial,
+            font=font,
         )
         draw.text(
             (600, 500),
@@ -130,7 +131,7 @@ async def gen_thumb(videoid):
             fill="yellow",
             stroke_width=1,
             stroke_fill="white",
-            font=arial,
+            font=font,
         )
         draw.text(
             (600, 550),
@@ -139,7 +140,7 @@ async def gen_thumb(videoid):
             fill="yellow",
             stroke_width=1,
             stroke_fill="white",
-            font=arial,
+            font=font,
         )
         try:
             os.remove(f"cache/thumb{videoid}.png")
