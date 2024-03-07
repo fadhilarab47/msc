@@ -73,8 +73,7 @@ async def gen_thumb(videoid):
         y = circle(zyoutube).resize((474, 474))
         background.paste(y, (50, 100), mask=y)    # Paste the circle image onto the background
         image3 = bg.resize((1280, 720))
-        image5 = image3.convert("RGBA")
-        CuteImg = Image.alpha_composite(background, image5)
+        CuteImg = Image.alpha_composite(background, image3)
         draw = ImageDraw.Draw(CuteImg)
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
         font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 70)
