@@ -53,18 +53,18 @@ async def gen_thumb(videoid):
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
         zyoutube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open("BgtxD/power/EXAMHEKAL.png")
-        image1 = youtube.resize((1280, 720))
+        bg = Image.open(f"BgtxD/power/EXAMHEKAL.png")  # Load the invisible circle PNG image
+        image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(16))
+        background = image2.filter(filter=ImageFilter.BoxBlur(20))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
         y = circle(zyoutube).resize((474, 474))
-        background.paste(y, (49, 125), mask=y)  # Adjusted placement of YouTube circle image
+        background.paste(y, (50, 100), mask=y)    # Paste the circle image onto the background
         image3 = bg.resize((1280, 720))
         image5 = image3.convert("RGBA")
-        result_img = Image.alpha_composite(background, image5)
-        draw = ImageDraw.Draw(result_img)
+        CuteImg = Image.alpha_composite(background, image5)
+        draw = ImageDraw.Draw(CuteImg)
         font = ImageFont.truetype("BgtxD/power/font2.ttf", 40)
         font2 = ImageFont.truetype("BgtxD/power/font2.ttf", 70)
         arial = ImageFont.truetype("BgtxD/power/font2.ttf", 30)
@@ -126,8 +126,7 @@ async def gen_thumb(videoid):
             os.remove(f"cache/thumb{videoid}.png")
         except:
             pass
-        CuteImg.save(f"cache/{videoid}.png")
+        background.save(f"cache/{videoid}.png")
         return f"cache/{videoid}.png"
     except Exception:
         return YOUTUBE_IMG_URL
-  
