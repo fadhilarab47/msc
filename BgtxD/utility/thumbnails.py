@@ -16,15 +16,12 @@ def changeImageSize(maxWidth, maxHeight, image):
     newImage = image.resize((newWidth, newHeight))
     return newImage
 
-def circle(img): 
-     h,w=img.size 
-     a = Image.new('L', [h,w], 0) 
-     b = ImageDraw.Draw(a) 
-     b.pieslice([(0, 0), (h,w)], 0, 360, fill = 255,outline = "white") 
-     c = np.array(img) 
-     d = np.array(a) 
-     e = np.dstack((c, d)) 
-     return Image.fromarray(e)
+def circle(img):
+    h, w = img.size
+    mask = Image.open("BgtxD/power/EXAMHEKAL.png").resize((w, h)).convert("L")  # Load and resize the invisible circle image
+    img.putalpha(mask)  # Use the circle image as an alpha mask for the input image
+    return img
+
 
 async def gen_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
