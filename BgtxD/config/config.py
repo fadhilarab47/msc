@@ -47,7 +47,7 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 # For customized or modified Repository
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/BikashHalderNew/BgtMusicV2",
+    "https://github.com/",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "Bikash")
 
@@ -155,7 +155,7 @@ START_IMG_URL = getenv("START_IMG_URL", None)
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://telegra.ph/file/91533956c91d0fd7c9f20.jpg",
+    "https://telegra.ph//file/8dc5d2ea0cc8622772250.jpg",
 )
 
 PLAYLIST_IMG_URL = getenv(
@@ -170,7 +170,7 @@ GLOBAL_IMG_URL = getenv(
 
 STATS_IMG_URL = getenv(
     "STATS_IMG_URL",
-    "https://telegra.ph/file/4dd9e2c231eaf7c290404.jpg",
+    "https://telegra.ph//file/8dc5d2ea0cc8622772250.jpg",
 )
 
 TELEGRAM_AUDIO_URL = getenv(
